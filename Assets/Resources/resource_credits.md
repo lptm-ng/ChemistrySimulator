@@ -8,14 +8,14 @@
 
 * für das Labor: https://assetstore.unity.com/packages/3d/props/tools/free-laboratory-pack-123782?srsltid=AfmBOooryymq-WnJ8YQy6Ua37devtZNUbikqKMPZeX5G3OzJ-yYJxjHl
 * für Equipment: https://www.cgtrader.com/free-3d-models/science/laboratory/free-laboratory-pack
-* für Equipment: https://sketchfab.com/3d-models/chemistry-bottles-12b838f10b07406f837b14d326039b36 
-* für Chemikalienbehälter: https://sketchfab.com/3d-models/assorted-bottle-chemical-lab-286cf37a56ac46e499f2e743fc1875f5 
-
-
+* für Equipment: https://sketchfab.com/3d-models/chemistry-bottles-12b838f10b07406f837b14d326039b36
+* für Chemikalienbehälter: https://sketchfab.com/3d-models/assorted-bottle-chemical-lab-286cf37a56ac46e499f2e743fc1875f5
+* Safety Goggles: https://sketchfab.com/3d-models/eye-protection-glasses-0ba6c4545fe14f0d9b8406ff030fd042
+* Safety Goggles: https://sketchfab.com/3d-models/scan-airsoft-glasses-novritsch-901587435a624f2a87bb625936ec548a
+* Lab Coat: https://sketchfab.com/3d-models/male-lab-coat-and-pants-77b6039abd6a4d7c8f1ebfea537510b5
+* Glove Box: https://sketchfab.com/3d-models/nitrile-glove-box-v2-4098d8252c974a098a1926f80b2dd419 
 
 
 
 #### Textures:
-
-
 
