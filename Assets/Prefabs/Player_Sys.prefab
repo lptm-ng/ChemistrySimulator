@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 7791192451824219920}
   - component: {fileID: 5461302347674807192}
   - component: {fileID: 6892486225524714535}
+  - component: {fileID: 1739645681762860093}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -483,3 +484,19 @@ MonoBehaviour:
   sensX: 30
   sensY: 30
   orientation: {fileID: 92701826439589347}
+--- !u!114 &1739645681762860093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777495531620435564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3950273fe48079b46b711a200d164cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  interactionRange: 3
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
