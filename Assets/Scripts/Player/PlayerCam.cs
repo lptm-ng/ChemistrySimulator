@@ -28,7 +28,7 @@ public class PlayerCam : MonoBehaviour
 
         yRotation += mouseX;
         xRotation -= mouseY;
-        
+
         // restriction for tilting up and down
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 

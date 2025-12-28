@@ -1,22 +1,44 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerInteraction : MonoBehaviour
+
+namespace Interactions
 {
-    public float interactionRange = 3f; // how far player can reach/interact w/ smth
-    public LayerMask interactableLayer;
-
-    void Update()
+    public class PlayerInteraction : MonoBehaviour
     {
-        // raycast for interaction logic
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
+        public float interactionRange = 3f; // how far player can reach/interact w/ smth
+        public LayerMask interactableLayer;
 
-        if(Physics.Raycast(ray, out hit, interactionRange, interactableLayer))
+        [SerializeField] private TargetHandler targetHandler;
+
+        private Camera _camera;
+
+        private void Start()
         {
-            if (Mouse.current.leftButton.wasPressedThisFrame)
+            _camera = Camera.main;
+        }
+
+        void Update()
+        {
+            // raycast for interaction logic
+
+            if (_camera is null) return;
+
+            Ray ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+            if (Physics.Raycast(ray, out var hit, interactionRange, interactableLayer))
             {
-                //
+                if (hit.collider.TryGetComponent<Target>(out var target))
+                {
+                    targetHandler?.HandleTarget(target);
+                }
+                else
+                {
+                    targetHandler?.ClearCurrentHighlight();
+                }
+            }
+            else
+            {
+                targetHandler?.ClearCurrentHighlight();
             }
         }
     }
