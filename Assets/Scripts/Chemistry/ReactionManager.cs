@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
@@ -29,7 +30,7 @@ public class ReactionManager : MonoBehaviour
         }
 
         // 3. Tollens
-        TriggerTollensReaction();
+        TriggerTollensReaction(container, contentsChemicals);
 
         // 4. Sonnenuntergang-Nachweis (Thiosulfat + Silbernitrat)
         if(contentsChemicals.Contains("Thiosulfat") && contentsChemicals.Contains("Silbernitrat"))
@@ -40,12 +41,12 @@ public class ReactionManager : MonoBehaviour
     
     }
 
-    public void TriggerTollensReaction(ChemicalContainer container)
+    public void TriggerTollensReaction(ChemicalContainer container, List<string>contentsChemicals)
     {
         // Tollens-Probe (Nachweis red. Anionen (eigentlich Carboxylate); Tartrat + Tollensreagenz (Silbernitrat, Wasser, Ammoniak))
         // Tollensreagenz (Silbernitrat und Ammoniak)
         int ammoniaCount = container.contents.Count(c => c.chemicalName == "Ammoniak");
-        bool hasSilver = contentsNames.Contains("Silbernitrat");
+        bool hasSilver = contentsChemicals.Contains("Silbernitrat");
 
         if (hasSilver)
         {
