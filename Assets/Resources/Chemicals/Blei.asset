@@ -13,6 +13,16 @@ MonoBehaviour:
   m_Name: Blei
   m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
   chemicalName: Blei
-  color: {r: 0.40000004, g: 0.4431373, b: 0.43529415, a: 0}
-  isSolid: 1
+  formula: "Pb\xB2\u207A"
   type: 1
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  isSolid: 1
+  infoText: "1. Eigenschaften: Schwermetall-Ion, Salze in Wasser meist schwerl\xF6slich
+    (Tr\xFCbung)\n\n2. Nachweis (Goldregen): In Proben-L\xF6sung Kaliumiodid-L\xF6sung
+    hinzugeben. Erhitzen, bis die L\xF6sung klar wird, und danach abk\xFChlen lassen.\n\n2.1.
+    Schritt f\xFCr Schritt:\na. die Proben-L\xF6sung in ein Erlenmeyerkolben kippen\r\nb.
+    zur L\xF6sung Kaliumiodid (KI) hinzugeben\nc. Erlenmeyerkolben erhitzen, bis
+    es klar wird, dann abk\xFChlen lassen\r\n\n3. Beobachtung: Es bildet sich ein
+    gelber Niederschlag. Beim Erhitzen l\xF6st sich dieser auf und bildet beim langsamen
+    Abk\xFChlen goldgl\xE4nzende Pl\xE4ttchen.\n\n4. Sicherheitshinweis: Blei ist
+    giftig und sch\xE4dogt langfristig Organe!"

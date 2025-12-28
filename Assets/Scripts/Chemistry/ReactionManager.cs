@@ -18,14 +18,14 @@ public class ReactionManager : MonoBehaviour
         // 1. Goldregen-Nachweis (Blei + Kaliumiodid)
         if(contentsChemicals.Contains("Blei") && contentsChemicals.Contains("Kaliumiodid"))
         {
-            TriggerReaction(container, "Goldregen", "Pb2+ + 2 I- -> PbI2 (gelber Niederschlag)");
+            TriggerReaction(container, "Goldregen", "Pb²⁺ + 2 I⁻ → PbI₂ ↓ (gelber Niederschlag)");
             // todo: trigger gelber parikel regen
         }
 
-        // 2. Blutroter Komplex (Eisen + Thiocyanat)
-        if(contentsChemicals.Contains("Eisen") && contentsChemicals.Contains("Thiocyanat"))
+        // 2. Blutroter Komplex (Eisen + Kaliumthiocyanat)
+        if(contentsChemicals.Contains("Eisen") && contentsChemicals.Contains("Kaliumthiocyanat"))
         {
-            TriggerReaction(container, "Blutrot", "Fe3+ + 3 SCN- + 3 H2O -> [Fe(SCN)3(H2O)3]");
+            TriggerReaction(container, "Blutrot", "Fe³⁺ + 3 SCN⁻ + 3 H₂O → [Fe(SCN)₃(H₂O)₃]");
             // todo: trigger blutrote lösung
         }
 
@@ -35,7 +35,7 @@ public class ReactionManager : MonoBehaviour
         // 4. Sonnenuntergang-Nachweis (Thiosulfat + Silbernitrat)
         if(contentsChemicals.Contains("Thiosulfat") && contentsChemicals.Contains("Silbernitrat"))
         {
-            TriggerReaction(container, "Sonnenuntergang", "1. 2 Ag++ S2O32- -> Ag2S2O3 (weiß)\n2. Ag2S2O3 + H2O -> Ag2S2 (schwarz) +H2SO4");
+            TriggerReaction(container, "Sonnenuntergang", "1. 2 Ag⁺ + S₂O₃²⁻ → Ag₂S₂O₃ ↓ (weiß)\n2. Ag₂S₂O₃ + H₂O → Ag₂S ↓ (schwarz) + H₂SO₄");
             // todo: zeitgesteuerter farbechsel (weiß -> gelb -> schwarz)
         }
     
@@ -53,12 +53,12 @@ public class ReactionManager : MonoBehaviour
             if(ammoniaCount == 1)
             {
                 container.isDissolved = false;
-                TriggerReaction(container, "Silberoxid-Fällung", "Ag+ + OH- -> Ag2O (brauner Niederschlag)");
+                TriggerReaction(container, "Silberoxid-Fällung", "Ag⁺ + OH⁻ → Ag₂O (brauner Niederschlag)");
             }
             else if(ammoniaCount >= 2)
             {
                 container.isDissolved = true;
-                TriggerReaction(container, "Tollensreagenz", "Ag+ + 2 NH3 -> [Ag(NH3)2]+"); // klare LÖsung
+                TriggerReaction(container, "Tollensreagenz", "Ag⁺ + 2 NH₃ → [Ag(NH₃)₂]⁺"); // klare LÖsung
             }
         }
         
@@ -66,7 +66,7 @@ public class ReactionManager : MonoBehaviour
         {
             if (container.isHot)
             {
-                TriggerReaction(container, "Silberspiegel", "(C4H4O6)2- + 10 [Ag(NH3)2]+ + 8 OH- -> 4 CO2 + 10 Ag + 20 NH3 + 6 H2O (elementares Silber)");
+                TriggerReaction(container, "Silberspiegel", "C₄H₄O₆²⁻ + 10 [Ag(NH₃)₂]⁺ + 8 OH⁻ → 4 CO₂ + 10 Ag + 20 NH₃ + 6 H₂O (elementares Silber)");
             }
         }
     }

@@ -22,6 +22,6 @@ public class ChemicalData : ScriptableObject
 	public bool isSolid = false; // Pulver oder Flüssigkeit --> Spatel oder kein Spatel?
 
 	[Header("Spez. Nachweis-Infos")]
-	[TextArea]
+	[TextArea(15, 20)]
 	public string infoText; // für das Nachschlagewerk
 }

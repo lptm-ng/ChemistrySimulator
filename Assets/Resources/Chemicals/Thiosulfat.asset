@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11170ba5dca632f42bc384c66e430816, type: 3}
+  m_Name: Thiosulfat
+  m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
+  chemicalName: Thiosulfat
+  formula: "S\u2082O\u2083\xB2\u207B"
+  type: 2
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  isSolid: 1
+  infoText: "1. Eigenschaften: Anion, kommt oft in Fixiersalzen vor\n\n2. Nachweis
+    (Sonnenuntergang): Die Proben-L\xF6sung mit Silbernitrat-L\xF6sung (AgNO\u2083)
+    versetzen.\n\n2.1. Schritt f\xFCr Schritt:\na. in Erlenmeyerkolben Silbernitrat
+    (AgNO\u2083) in dest. Wasser l\xF6sen\r\nb. in L\xF6sung dann Proben-L\xF6sung
+    geben\n\n3. Beobachtung: Der Niederschlag wechselt langsam die Farbe von wei\xDF
+    (Silberthiosulfat, Ag\u2082S\u2082O\u2083) \xFCber gelb und orange bis hin zu
+    schwarz (Silbersulfid, Ag\u2082S) (\"Sonnenuntergang\").\n"
