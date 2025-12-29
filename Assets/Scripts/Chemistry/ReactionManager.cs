@@ -74,11 +74,26 @@ public class ReactionManager : MonoBehaviour
 
     private void TriggerReaction(ChemicalContainer container, string reactionName, string equation)
     {
-        // später, for now erstmal debug logs
         Debug.Log("REAKTION: " + reactionName);
         Debug.Log("REAKTIONSGLEICHUNG: " + equation);
 
-        // später halt, dass UI die Gleichung zeigt und dass sich der Inhalt vom Container verändert
+        if(UIManager.Instance != null)
+        {
+            UIManager.Instance.DisplayEquation(equation);
+        }
+    }
+
+    public void TriggerFlameTest(ChemicalData chemical, FumeHoodStation station)
+    {
+        if (!station.isPlayerInZone)
+        {
+            UIManager.Instance.DisplayEquation("Sicherheitshinweis: Flammenfärbung nur unter dem Abzug erlaubt!");
+            return;
+        }
+
+        Color flameColor = GetFlameColor(chemical);
+        var main = station.burnerFlame.main;
+        main.startColor = flameColor;
     }
 
     private Color GetFlameColor(ChemicalData chemical)

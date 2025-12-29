@@ -14,6 +14,21 @@ public class PlayerInteraction : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, interactionRange, interactableLayer))
         {
+            ChemicalContainer container = hit.collider.GetComponent<ChemicalContainer>();
+            if(container != null && container.contents.Count > 0)
+            {
+                ChemicalData chemicals = container.contents[0];
+                if(UIManager.Instance != null)
+                {
+                    UIManager.Instance.ShowChemicalInfo(chemicals.chemicalName, chemicals.formula);
+                }
+                else
+                {
+                    if(UIManager.Instance != null) UIManager.Instance.ClearInfo();
+                }
+            }
+            
+            
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
                 //
