@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Interactions
@@ -18,6 +19,16 @@ namespace Interactions
             _outline.enabled = false;
         }
 
+        private void Awake()
+        {
+            if (!TryGetComponent<Outline>(out _outline))
+            {
+                _outline = gameObject.AddComponent<Outline>();
+                _outline.OutlineColor = Color.yellow;
+                _outline.OutlineWidth = 15.0f;
+            }
+            _outline.enabled = false;
+        }
 
         public void ActivateHighlight()
         {
