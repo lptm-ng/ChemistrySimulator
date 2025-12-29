@@ -10,7 +10,7 @@ public class ChemicalContainer : MonoBehaviour
     [Header("Zustand")]
     public bool isHot = false;
     public bool isDissolved = false;
-    public bool isContaminated = false; // für die Entsorgung
+    public bool isContaminated = false; // für die Entsorgung & GameLoop
 
     [Header("Visuell")]
     public MeshRenderer liquidRenderer;
@@ -29,8 +29,8 @@ public class ChemicalContainer : MonoBehaviour
 
     private void UpdateSolubilityState()
     {
-        bool hasWater = contents.Any(c => c.type == ChemicalData.ChemicalType.SOLVENT && c.chemicalName == "Wasser");
-        bool hasHCL = contents.Any(c => c.type == ChemicalData.ChemicalType.SOLVENT && c.chemicalName == "Salzsäure");
+        bool hasWater = contents.Any(c => c.chemicalName == "Wasser");
+        bool hasHCL = contents.Any(c => c.chemicalName == "Salzsäure");
         bool hasLead = contents.Any(c => c.chemicalName == "Blei");
 
         if(hasLead && hasWater && !hasHCL)
