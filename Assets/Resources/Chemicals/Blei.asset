@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blei
   m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
   chemicalName: Blei
-  formula: "Pb\xB2\u207A"
+  formula: Pb<sup>2+</sup>
   type: 1
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isSolid: 1

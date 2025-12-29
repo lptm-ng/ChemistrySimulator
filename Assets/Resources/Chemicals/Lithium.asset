@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lithium
   m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
   chemicalName: Lithium
-  formula: "Li\u207A"
+  formula: Li<sup>+</sup>
   type: 1
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isSolid: 1

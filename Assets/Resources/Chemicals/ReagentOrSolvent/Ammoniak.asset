@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Ammoniak
   m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
   chemicalName: Ammoniak
-  formula: "NH\u2083"
+  formula: NH<sub>3</sub>
   type: 4
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isSolid: 0
   infoText: "10% Ammoniak-L\xF6sung\n\n1. Eigenschaften: stechend riechend, basische
     L\xF6sung\n\n2. Verwendung: Wird zur Herstellung des Tollensreagenz verwendet.
     Es l\xF6st anf\xE4ngliche Silber-Tr\xFCbungen wieder auf, indem es einen l\xF6slichen
-    Silber-Komplex ([Ag(NH\u2083)\u2082]\u207A) bildet.\n"
+    Silber-Komplex ([Ag(NH<sub>3</sub>)<sub>2</sub>]<sup>+</sup>) bildet.\n"

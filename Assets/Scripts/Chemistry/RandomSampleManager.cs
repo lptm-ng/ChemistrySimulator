@@ -45,6 +45,7 @@ public class RandomSampleManager : MonoBehaviour
         // Ionen adden in Container
         targetContainer.AddChemical(currentCation);
         targetContainer.AddChemical(currentAnion);
+        targetContainer.isRandomSample = true;
 
         Debug.Log($"Aufgabe mit Kation: {currentCation.chemicalName} + Anion: {currentAnion.chemicalName}");
     }

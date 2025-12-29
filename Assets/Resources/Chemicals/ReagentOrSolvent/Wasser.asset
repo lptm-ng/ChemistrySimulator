@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wasser
   m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
   chemicalName: Wasser
-  formula: "H\u2082O"
-  type: 0
+  formula: H<sub>2</sub>O
+  type: 4
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isSolid: 0
   infoText: "Destilliertes Wasser\n\n1. Eigenschaften: universelles L\xF6sungsmittel

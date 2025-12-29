@@ -8,13 +8,14 @@ public class ChemicalContainer : MonoBehaviour
     public List<ChemicalData> contents = new List<ChemicalData>();
 
     [Header("Zustand")]
+    public bool isRandomSample = false;
     public bool isHot = false;
     public bool isDissolved = false;
     public bool isContaminated = false; // für die Entsorgung & GameLoop
 
     [Header("Visuell")]
     public MeshRenderer liquidRenderer;
-    
+
     // [Chemikalie] in Behälter reinkippen
     public void AddChemical(ChemicalData chemical)
     {
@@ -33,11 +34,11 @@ public class ChemicalContainer : MonoBehaviour
         bool hasHCL = contents.Any(c => c.chemicalName == "Salzsäure");
         bool hasLead = contents.Any(c => c.chemicalName == "Blei");
 
-        if(hasLead && hasWater && !hasHCL)
+        if (hasLead && hasWater && !hasHCL)
         {
             isDissolved = false; // alle möglichen Blei-Verb. schwerlöslich --> trüb
         }
-        else if(hasHCL || hasWater) // für alle anderen Kationen + Blei und HCL
+        else if (hasHCL || hasWater) // für alle anderen Kationen + Blei und HCL
         {
             isDissolved = true;
         }
@@ -49,5 +50,16 @@ public class ChemicalContainer : MonoBehaviour
         isHot = false;
         isDissolved = false;
         isContaminated = false;
+    }
+
+    // FÜR TESTS ohne das Kippen
+    [ContextMenu("CheckForReactions TEST")]
+    public void ManualTestTrigger()
+    {
+        if (ReactionManager.Instance != null)
+        {
+            UpdateSolubilityState();
+            ReactionManager.Instance.CheckReaction(this);
+        }
     }
 }

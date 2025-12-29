@@ -17,6 +17,11 @@ MonoBehaviour:
   type: 3
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isSolid: 1
-  infoText: "1. Eigenschaften: farbloses Salz (Kaliumrhodanid)\n\n2. Verwendung:
+  infoText: '1. Eigenschaften: farbloses Salz (Kaliumrhodanid)
+
+
+    2. Verwendung:
     Reagenz zum Nachweis von Eisen(III)-Ionen (Eisen(II)-Ionen werden direkt zu Eisen(III)-Ionen)
-    durch die Bildung des blutroten Komplexes ([Fe(SCN)\u2083(H\u2082O)\u2083]).\n"
+    durch die Bildung des blutroten Komplexes ([Fe(SCN)<sub>3</sub>(H<sub>2</sub>O)<sub>3</sub>]).
+
+'

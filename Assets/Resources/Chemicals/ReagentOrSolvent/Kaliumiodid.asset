@@ -19,4 +19,4 @@ MonoBehaviour:
   isSolid: 1
   infoText: "1. Eigenschaften: farbloses Salz, sehr gut wasserl\xF6slich\n\n2. Verwendung:
     Reagenz f\xFCr den Bleinachweis. Das Iodid-Ion (I\u207B) bildet mit Blei den
-    charakteristischen gelben Niederschlag (Blei(II)-iodid, PbI\u2082).\n"
+    charakteristischen gelben Niederschlag (Blei(II)-iodid, PbI<sub>2</sub>).\n"

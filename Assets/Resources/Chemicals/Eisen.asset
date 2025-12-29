@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Eisen
   m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
   chemicalName: Eisen
-  formula: "Fe\xB2\u207A/\xB3\u207A"
+  formula: Fe<sup>2+/3+</sup>
   type: 1
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isSolid: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
     in einem anderen Erlenmeyerkolben Kaliumthiocyanat (KCNO) mit dest. Wasser l\xF6sen\r\nc.
     Kaliumthiocyanat-L\xF6sung in Proben-L\xF6sung reingeben\r\n\n3. Beobachtung:
     Es entsteht sofort eine tiefrote, blut\xE4hnliche F\xE4rbung durch die Bildung
-    des Eisen-Thiocyanat-Komplexes ([Fe(SCN)\u2083(H\u2082O)\u2083]).\n\n4. Hinweis:
-    Eisen-Ionen und Thiocyanat-Ionen bilden den blutroten Komplex, den man im Eisen-Nachweis
-    beobachten kann. Deswegen gibt es in der unbekannten Probe die Kombination von
-    Eisen und Thiocyanat nicht!"
+    des Eisen-Thiocyanat-Komplexes ([Fe(SCN)<sub>3</sub>(H<sub>2</sub>O)<sub>3</sub>]).\n\n4.
+    Hinweis: Eisen-Ionen und Thiocyanat-Ionen bilden den blutroten Komplex, den man
+    im Eisen-Nachweis beobachten kann. Deswegen gibt es in der unbekannten Probe
+    die Kombination von Eisen und Thiocyanat nicht!"

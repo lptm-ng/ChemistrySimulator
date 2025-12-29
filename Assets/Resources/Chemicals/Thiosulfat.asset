@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Thiosulfat
   m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
   chemicalName: Thiosulfat
-  formula: "S\u2082O\u2083\xB2\u207B"
+  formula: S<sub>2</sub>O<sub>3</sub><sup>2-</sup>
   type: 2
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isSolid: 1
   infoText: "1. Eigenschaften: Anion, kommt oft in Fixiersalzen vor\n\n2. Nachweis
-    (Sonnenuntergang): Die Proben-L\xF6sung mit Silbernitrat-L\xF6sung (AgNO\u2083)
+    (Sonnenuntergang): Die Proben-L\xF6sung mit Silbernitrat-L\xF6sung (AgNO<sub>3</sub>)
     versetzen.\n\n2.1. Schritt f\xFCr Schritt:\na. in Erlenmeyerkolben Silbernitrat
-    (AgNO\u2083) in dest. Wasser l\xF6sen\r\nb. in L\xF6sung dann Proben-L\xF6sung
+    (AgNO<sub>3</sub>) in dest. Wasser l\xF6sen\r\nb. in L\xF6sung dann Proben-L\xF6sung
     geben\n\n3. Beobachtung: Der Niederschlag wechselt langsam die Farbe von wei\xDF
-    (Silberthiosulfat, Ag\u2082S\u2082O\u2083) \xFCber gelb und orange bis hin zu
-    schwarz (Silbersulfid, Ag\u2082S) (\"Sonnenuntergang\").\n"
+    (Silberthiosulfat, Ag<sub>2</sub>S<sub>2</sub>O<sub>3</sub>) \xFCber gelb und
+    orange bis hin zu schwarz (Silbersulfid, Ag<sub>2</sub>S) (\"Sonnenuntergang\").\n"

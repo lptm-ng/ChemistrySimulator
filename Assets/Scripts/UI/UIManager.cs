@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        if(equationText != null) equationText.text = "";
         if(equationPanel != null) equationPanel.SetActive(false);
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Silbernitrat
   m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
   chemicalName: Silbernitrat
-  formula: "AgNO\u2083"
+  formula: AgNO<sub>3</sub>
   type: 3
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isSolid: 1

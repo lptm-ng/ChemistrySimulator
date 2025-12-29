@@ -14,13 +14,13 @@ public class PlayerInteraction : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, interactionRange, interactableLayer))
         {
-            ChemicalContainer container = hit.collider.GetComponent<ChemicalContainer>();
+            ChemicalContainer container = hit.collider.GetComponentInParent<ChemicalContainer>();
             if(container != null && container.contents.Count > 0)
             {
                 ChemicalData chemicals = container.contents[0];
                 if(UIManager.Instance != null)
                 {
-                    UIManager.Instance.ShowChemicalInfo(chemicals.chemicalName, chemicals.formula);
+                    UIManager.Instance.ShowChemicalInfo(chemicals.chemicalName, chemicals.formula, container.isRandomSample);
                 }
                 else
                 {
@@ -33,6 +33,10 @@ public class PlayerInteraction : MonoBehaviour
             {
                 //
             }
+        }
+        else
+        {
+            if(UIManager.Instance != null) UIManager.Instance.ClearInfo();
         }
     }
 }

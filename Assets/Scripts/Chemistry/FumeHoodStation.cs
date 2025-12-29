@@ -13,7 +13,6 @@ public class FumeHoodStation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Etwas hat den Trigger berührt: " + other.name);
         if (other.CompareTag("Player"))
         {
             isPlayerInZone = true;
