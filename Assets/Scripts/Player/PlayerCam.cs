@@ -21,6 +21,9 @@ public class PlayerCam : MonoBehaviour
 
     void Update()
     {
+        // lexikon locked die kamera
+        if (UIManager.Instance != null && UIManager.Instance.isLexikonOpen) return;
+        
         // mouse inputs
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
         float mouseX = mouseDelta.x * Time.deltaTime * sensX;
