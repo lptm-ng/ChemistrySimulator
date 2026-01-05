@@ -20,19 +20,25 @@ public class UIManager : MonoBehaviour
 
     public void ShowChemicalInfo(string name, string formula, bool isUnknown = false)
     {
+        infoText.transform.parent.gameObject.SetActive(true);
+
         if (isUnknown)
         {
-            infoText.text = "Unbekannte Substanz <color=orange>(???)</color>";
+            infoText.text = "Unbekannte Substanz <color=blue>(???)</color>";
         }
         else
         {
-            infoText.text = $"{name} <color=orange> ({formula})</color>";
+            infoText.text = $"{name} <color=blue> ({formula})</color>";
         }
     }
 
     public void ClearInfo()
     {
-        infoText.text = "";
+        if(infoText != null)
+        {
+            infoText.text = "";
+            infoText.transform.parent.gameObject.SetActive(false);
+        }
     }
 
     public void DisplayEquation(string equation)
