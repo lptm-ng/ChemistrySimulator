@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11170ba5dca632f42bc384c66e430816, type: 3}
+  m_Name: Eisen
+  m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
+  chemicalName: Eisen
+  formula: Fe<sup>2+/3+</sup>
+  type: 1
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  isSolid: 1
+  infoText: "1. Eigenschaften: kommt als Fe\xB2\u207A oder Fe\xB3\u207A vor, Salze
+    in Wasser meistens leicht l\xF6slich\n\n2. Nachweis (Blutrote Komplexbildung):
+    Die Proben-L\xF6sung mit Kaliumthiocyanat-L\xF6sung versetzen.\n\n2.1. Schritt
+    f\xFCr Schritt:\na. die Proben-L\xF6sung in ein Erlenmeyerkolben machen\r\nb.
+    in einem anderen Erlenmeyerkolben Kaliumthiocyanat (KCNO) mit dest. Wasser l\xF6sen\r\nc.
+    Kaliumthiocyanat-L\xF6sung in Proben-L\xF6sung reingeben\r\n\n3. Beobachtung:
+    Es entsteht sofort eine tiefrote, blut\xE4hnliche F\xE4rbung durch die Bildung
+    des Eisen-Thiocyanat-Komplexes ([Fe(SCN)<sub>3</sub>(H<sub>2</sub>O)<sub>3</sub>]).\n\n4.
+    Hinweis: Eisen-Ionen und Thiocyanat-Ionen bilden den blutroten Komplex, den man
+    im Eisen-Nachweis beobachten kann. Deswegen gibt es in der unbekannten Probe
+    die Kombination von Eisen und Thiocyanat nicht!"

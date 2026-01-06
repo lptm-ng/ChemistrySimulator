@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11170ba5dca632f42bc384c66e430816, type: 3}
+  m_Name: Tartrat
+  m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
+  chemicalName: Tartrat
+  formula: C<sub>4</sub>H<sub>4</sub>O<sub>6</sub><sup>2-</sup>
+  type: 2
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  isSolid: 1
+  infoText: "1. Eigenschaften: organisches Anion, Anion der Weins\xE4ure (E 334)\n\n2.
+    Nachweis (Tollens-Probe): Zur Probe wird frisch hergestelltes Tollensreagenz
+    (Silbernitrat (AgNO<sub>3</sub>) + Ammoniak (NH<sub>3</sub>)) gegeben. Die Mischung
+    vorsichtig erhitzt.\n\n2.1. Schritt f\xFCr Schritt:\na. Tollensreagenz herstellen\r\n\u2192
+    in einem Reagenzglas Silbernitrat (AgNO<sub>3</sub>) in dest. Wasser l\xF6sen
+    (tr\xFCb)\r\n\u2192 so lange 10% Ammoniakl\xF6sung (NH<sub>3</sub>) hinzuf\xFCgen,
+    bis die Tr\xFCbung sich l\xF6st\r\nb. in Reagenzglas Probe hinzugeben\r\nc. Reagenzglas
+    erhitzen\r\n\n3. Beobachtung: An der Innenseite des Reagenzglases bildet sich
+    ein gl\xE4nzender Silberspiegel (elementares Silber).\n\n4. Zusatzinformation:
+    Die Tollens-Probe weist spezifisch reduzierende Carboxylate nach. F\xFCr diese
+    Simulation wird dieser Nachweis spezifisch f\xFCr Tartrat verwendet, das ein
+    reduzierendes Anion ist. \nDas Erhitzen des Reagenzglases wird in der Praxis
+    mit einem Wasserbad gemacht."

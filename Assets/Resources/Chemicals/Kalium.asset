@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11170ba5dca632f42bc384c66e430816, type: 3}
+  m_Name: Kalium
+  m_EditorClassIdentifier: Assembly-CSharp::ChemicalData
+  chemicalName: Kalium
+  formula: K<sup>+</sup>
+  type: 1
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  isSolid: 1
+  infoText: "1. Eigenschaften: Alkalimetall-Ion, Salze in Wasser oft gut l\xF6slich\n\n2.
+    Nachweis (Flammenf\xE4rbung): \na. Magnesiast\xE4bchen in die Probe tauchen\nb.
+    in die blaue Bunsenbrennerflamme halten\n\n3. Beobachtung: Die Flamme f\xE4rbt
+    sich violett.\n\n4. Zusatzinformation: Flammenf\xE4rbung macht man in der nicht
+    leuchtenden Bunsenbrennerflamme, also in der blauen Flamme und nicht mit der
+    orangen Flamme! \n"
