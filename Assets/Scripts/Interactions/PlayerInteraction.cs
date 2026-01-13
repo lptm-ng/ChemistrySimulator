@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,15 @@ public class PlayerInteraction : MonoBehaviour
                     currentTarget = container;
                     UIManager.Instance.ShowChemicalInfo(currentTarget.contents[0].chemicalName, currentTarget.contents[0].formula, currentTarget.isRandomSample
                     );
+                }
+            }
+
+            if(Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                SubmissionStation station = hit.collider.GetComponent<SubmissionStation>();
+                if(station != null)
+                {
+                    station.Interact();
                 }
             }
         }

@@ -21,7 +21,7 @@ public class RandomSampleManager : MonoBehaviour
 
     public void GenerateNewTask()
     {
-        // falls noch voll bevor der neuen Aufgabe
+        // falls noch voll bevor der neuen aufgabe
         targetContainer.ClearContainer();
         
         bool validCombination = false;
@@ -31,7 +31,7 @@ public class RandomSampleManager : MonoBehaviour
             currentCation = allCations[Random.Range(0, allCations.Count)];
             currentAnion = allAnions[Random.Range(0, allAnions.Count)];
 
-            // Eisen(II)-thiosulfat ist instabil in Wasser, deswegen ist diese Kombi nicht möglich (Thiosulfatsalze wird auch für den Eisen-Nachweis benutzt)
+            // Eisen(II)-thiosulfat ist instabil in wasser, deswegen ist diese kombi nicht möglich (Thiosulfatsalze wird auch für den Eisen-Nachweis benutzt)
             if(currentCation.chemicalName == "Eisen" && currentAnion.chemicalName == "Thiosulfat")
             {
                 validCombination = false;
@@ -53,5 +53,32 @@ public class RandomSampleManager : MonoBehaviour
     public bool CheckPlayerSolution(string guessedCation, string guessedAnion)
     {
         return guessedCation == currentCation.chemicalName && guessedAnion == currentAnion.chemicalName;
+    }
+
+    public void SubmitSolution(int guessedCationIndex, int guessedAnionIndex)
+    {
+        string guessedCation = allCations[guessedCationIndex].chemicalName;
+        string guessedAnion = allAnions[guessedAnionIndex].chemicalName;
+
+        if(CheckPlayerSolution(guessedCation, guessedAnion))
+        {
+            Debug.Log("Richtige Abgabe");
+            UIManager.Instance.ShowFeedback("Richtig!<br>Deine Analyse ist korrekt.", Color.darkGreen);
+
+            // neue aufgabe + automatisches schließen
+            Invoke("CloseUIAndNewTask", 4f);
+        }
+        else
+        {
+            Debug.Log("Falsche Abgabe");
+            UIManager.Instance.ShowFeedback("Falsch!<br>Überprüfe deine Analyse noch einmal.", Color.red);
+        }
+    }
+
+    private void CloseUIAndNewTask()
+    {
+        UIManager.Instance.CloseSubmission();
+        UIManager.Instance.ShowFeedback("", Color.white);
+        GenerateNewTask();
     }
 }
