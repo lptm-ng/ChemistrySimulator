@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerCam : MonoBehaviour
 {
-    public float sensX;
+    [Header("Settings")] public float sensX;
     public float sensY;
 
-    public Transform orientation;
-
+    [Header("References")] public Transform playerBody;
+    public Transform cameraTarget;
     float xRotation;
     float yRotation;
 
@@ -21,22 +19,29 @@ public class PlayerCam : MonoBehaviour
 
     void Update()
     {
-        // lexikon locked die kamera
         if (UIManager.Instance != null && UIManager.Instance.isLexikonOpen) return;
-        
-        // mouse inputs
+        if (Mouse.current == null) return;
+
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
         float mouseX = mouseDelta.x * Time.deltaTime * sensX;
         float mouseY = mouseDelta.y * Time.deltaTime * sensY;
 
-        yRotation += mouseX;
         xRotation -= mouseY;
-
-        // restriction for tilting up and down
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // rotate cam and orientation
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        if (playerBody != null)
+        {
+            playerBody.Rotate(Vector3.up * mouseX);
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (cameraTarget != null)
+        {
+            transform.position = cameraTarget.position;
+        }
     }
 }

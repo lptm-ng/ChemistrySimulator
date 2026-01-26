@@ -4,17 +4,14 @@ using System.Linq;
 
 public class ChemicalContainer : MonoBehaviour
 {
-    [Header("Inhalt")]
-    public List<ChemicalData> contents = new List<ChemicalData>();
+    [Header("Inhalt")] public List<ChemicalData> contents = new List<ChemicalData>();
 
-    [Header("Zustand")]
-    public bool isRandomSample = false;
+    [Header("Zustand")] public bool isRandomSample = false;
     public bool isHot = false;
     public bool isDissolved = false;
     public bool isContaminated = false; // für die Entsorgung & GameLoop
 
-    [Header("Visuell")]
-    public MeshRenderer liquidRenderer;
+    [Header("Visuell")] public MeshRenderer liquidRenderer;
 
     // [Chemikalie] in Behälter reinkippen
     public void AddChemical(ChemicalData chemical)

@@ -6,15 +6,13 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("PopUp")]
-    public TextMeshProUGUI infoText;
+    [Header("PopUp")] public TextMeshProUGUI infoText;
     public GameObject infoPanel;
     public TextMeshProUGUI equationText;
     public GameObject equationPanel;
     private float equationTimer = 0f;
 
-    [Header("Lexikon")]
-    public GameObject lexikonPanel;
+    [Header("Lexikon")] public GameObject lexikonPanel;
     public TextMeshProUGUI lexikonName;
     public TextMeshProUGUI lexikonInhalt;
     public bool isLexikonOpen = false;

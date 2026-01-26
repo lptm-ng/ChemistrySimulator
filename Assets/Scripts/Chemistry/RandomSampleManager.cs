@@ -3,17 +3,14 @@ using UnityEngine;
 
 public class RandomSampleManager : MonoBehaviour
 {
-    [Header("Container mit der Probe")]
-    public ChemicalContainer targetContainer;
-    
-    [Header("Mögliche Ionen")]
-    public List<ChemicalData> allCations;
+    [Header("Container mit der Probe")] public ChemicalContainer targetContainer;
+
+    [Header("Mögliche Ionen")] public List<ChemicalData> allCations;
     public List<ChemicalData> allAnions;
 
-    [Header("Aktuelle Probe")]
-    public ChemicalData currentCation;
+    [Header("Aktuelle Probe")] public ChemicalData currentCation;
     public ChemicalData currentAnion;
-    
+
     void Start()
     {
         GenerateNewTask();
@@ -23,7 +20,7 @@ public class RandomSampleManager : MonoBehaviour
     {
         // falls noch voll bevor der neuen Aufgabe
         targetContainer.ClearContainer();
-        
+
         bool validCombination = false;
         while (!validCombination)
         {
@@ -32,7 +29,7 @@ public class RandomSampleManager : MonoBehaviour
             currentAnion = allAnions[Random.Range(0, allAnions.Count)];
 
             // Eisen(II)-thiosulfat ist instabil in Wasser, deswegen ist diese Kombi nicht möglich (Thiosulfatsalze wird auch für den Eisen-Nachweis benutzt)
-            if(currentCation.chemicalName == "Eisen" && currentAnion.chemicalName == "Thiosulfat")
+            if (currentCation.chemicalName == "Eisen" && currentAnion.chemicalName == "Thiosulfat")
             {
                 validCombination = false;
             }
