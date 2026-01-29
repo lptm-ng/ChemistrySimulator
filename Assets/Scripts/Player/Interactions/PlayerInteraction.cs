@@ -1,18 +1,15 @@
 using UnityEngine;
-using System;
-using Player.Interactions;
 using UnityEngine.InputSystem;
 
-namespace Interactions
+namespace Player.Interactions
 {
     public class PlayerInteraction : MonoBehaviour
     {
-        [Header("Settings")] [SerializeField]
-        private float interactionRange = 3f; // how far player can reach/interact w/ smth
+        [Header("Settings")] [SerializeField] private float interactionRange = 3f;
 
         [SerializeField] private LayerMask interactableLayer;
         [SerializeField] private TargetHandler targetHandler;
-        [SerializeField] private PickUpHandler pickUpHandler; // Referenz im Inspector ziehen!
+        [SerializeField] private PickUpHandler pickUpHandler;
         private Camera _camera;
         private Target _currentTarget;
 
@@ -24,20 +21,10 @@ namespace Interactions
 
         void Update()
         {
-            if (pickUpHandler.HeldObj)
-            {
-                targetHandler.ClearCurrentHighlight();
-        
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    pickUpHandler.DropObject();
-                }
-                return;
-            }
-            
             HandleDetection();
             HandleInput();
         }
+
 
         private void HandleDetection()
         {
@@ -65,13 +52,15 @@ namespace Interactions
         {
             if (Keyboard.current.eKey.wasPressedThisFrame)
             {
-                TryInteract();
+                _currentTarget?.Interact();
             }
-        }
-
-        private void TryInteract()
-        {
-            _currentTarget?.Interact();
+            if (Keyboard.current.qKey.wasPressedThisFrame)
+            {
+                if (_currentTarget)
+                {
+                    targetHandler.TryMix();
+                }
+            }
         }
     }
 }

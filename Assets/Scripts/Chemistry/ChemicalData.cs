@@ -16,8 +16,7 @@ public class ChemicalData : ScriptableObject
     public string formula; // Strukturformel hier
     public ChemicalType type;
 
-    [Header("Visuelle Eigenschaften")]
-    public Color
+    [Header("Visuelle Eigenschaften")] public Color
         liquidColor =
             Color.clear; // Trübung der LÖSUNG (trüb oder nicht trüb, um z.B. schon einmal zu wissen, ob da Blei drin ist)
 

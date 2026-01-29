@@ -1,12 +1,11 @@
-using System;
-using Player.Interactions;
 using UnityEngine;
 
-namespace Interactions
+namespace Player.Interactions
 {
     public class Target : MonoBehaviour, IInteractable
     {
         private Outline _outline;
+        private bool _b;
 
         private void Awake()
         {
@@ -22,22 +21,21 @@ namespace Interactions
 
         public void ActivateHighlight()
         {
-            if (_outline is not null) _outline.enabled = true;
+            if (_outline) _outline.enabled = true;
         }
 
         public void DeactivateHighlight()
         {
-            if (_outline is not null) _outline.enabled = false;
+            if (_outline) _outline.enabled = false;
         }
 
         public void Interact()
         {
             var pickUpHandler = FindFirstObjectByType<PickUpHandler>();
-
             if (!pickUpHandler) return;
+
             pickUpHandler.PickUp(gameObject);
             DeactivateHighlight();
-
         }
 
         public string GetDescription()

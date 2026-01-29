@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player.Interactions
+namespace Player
 {
+    //Deprecated
     public class PlayerMovement : MonoBehaviour
     {
         private static readonly int WalkingTrigger = Animator.StringToHash("WalkingTrigger");
@@ -21,8 +22,6 @@ namespace Player.Interactions
         {
             rb = GetComponent<Rigidbody>();
             rb.freezeRotation = true;
-
-            // prevents sliding on ice effect
             rb.linearDamping = groundDrag;
         }
 
@@ -49,7 +48,6 @@ namespace Player.Interactions
 
         public bool MovePlayer()
         {
-            // calculation of mov direction
             if (moveDirection != Vector3.zero)
             {
                 const float rotationSpeed = 10f;
