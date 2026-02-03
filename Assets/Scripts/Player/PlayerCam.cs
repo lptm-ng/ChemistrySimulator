@@ -1,42 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerCam : MonoBehaviour
+namespace Player
 {
-    public float sensX;
-    public float sensY;
-
-    public Transform orientation;
-
-    float xRotation;
-    float yRotation;
-
-    void Start()
+    public class PlayerCam : MonoBehaviour
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
+        [Header("Settings")] public float sensX;
+        public float sensY;
 
-    void Update()
-    {
-        // lexikon locked die kamera
-        if (UIManager.Instance != null && UIManager.Instance.isLexikonOpen) return;
-        
-        // mouse inputs
-        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-        float mouseX = mouseDelta.x * Time.deltaTime * sensX;
-        float mouseY = mouseDelta.y * Time.deltaTime * sensY;
+        [Header("References")] public Transform playerBody;
+        public Transform cameraTarget;
+        float _xRotation;
+        float _yRotation;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
-        
-        // restriction for tilting up and down
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        void Start()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
-        // rotate cam and orientation
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        void Update()
+        {
+            if (UIManager.Instance && UIManager.Instance.isLexikonOpen) return;
+            if (Mouse.current == null) return;
+
+            Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+            float mouseX = mouseDelta.x * Time.deltaTime * sensX;
+            float mouseY = mouseDelta.y * Time.deltaTime * sensY;
+
+            _xRotation -= mouseY;
+            _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
+
+            transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+
+            if (playerBody)
+            {
+                playerBody.Rotate(Vector3.up * mouseX);
+            }
+        }
+
+        void LateUpdate()
+        {
+            if (cameraTarget)
+            {
+                transform.position = cameraTarget.position;
+            }
+        }
     }
 }

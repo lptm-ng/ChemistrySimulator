@@ -8,7 +8,7 @@ public class FumeHoodStation : MonoBehaviour
 
     private void Start()
     {
-        if(burnerFlame != null) burnerFlame.Stop();
+        if (burnerFlame != null) burnerFlame.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -16,7 +16,7 @@ public class FumeHoodStation : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInZone = true;
-            if(burnerFlame != null) burnerFlame.Play();
+            if (burnerFlame != null) burnerFlame.Play();
         }
     }
 
@@ -25,7 +25,7 @@ public class FumeHoodStation : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInZone = false;
-            if(burnerFlame != null) burnerFlame.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            if (burnerFlame != null) burnerFlame.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             ResetFlame();
         }
     }
