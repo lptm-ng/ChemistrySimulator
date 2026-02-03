@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945748602ab4a8241bc0eddb7e46feb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Interactions.MixingScript
-  pickUpHandler: {fileID: 1816392165}
+  handler: {fileID: 714213450}
 --- !u!1001 &1178098430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945748602ab4a8241bc0eddb7e46feb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Interactions.MixingScript
-  pickUpHandler: {fileID: 1816392165}
+  handler: {fileID: 714213450}
 --- !u!1 &1493985426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6e3408e56a01494498f2c242e80ac983, type: 3}
