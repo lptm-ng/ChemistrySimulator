@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace Player.Interactions
 {
-    
     public class TargetHandler : MonoBehaviour
     {
-        public event Action<GameObject> OnMix;
+        
         private Target _currentTarget;
 
         public void HandleTarget(Target target)
@@ -15,16 +14,6 @@ namespace Player.Interactions
             ClearCurrentHighlight();
             _currentTarget = target;
             _currentTarget.ActivateHighlight();
-        }
-        
-        public void TryMix()
-        {
-            if (_currentTarget != null)
-            {
-                Debug.Log("Mix Triggered via Input");
-                
-                OnMix?.Invoke(_currentTarget.gameObject); 
-            }
         }
 
         public void ClearCurrentHighlight()

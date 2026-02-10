@@ -1,4 +1,5 @@
 using System.Collections;
+using Interactions;
 using UnityEngine;
 
 namespace Player.Interactions
@@ -11,13 +12,14 @@ namespace Player.Interactions
         [Header("Settings")] public float throwForce = 500f;
         private const float RotationSensitivity = 1f;
 
-        private GameObject HeldObj { get; set; }
+        public GameObject HeldObj { get; private set; }
         private Rigidbody _heldObjRb;
         private bool _canDrop = true;
 
+        [SerializeField] private Camera playerCamera;
         private int _layerNumber;
         private int _rememberedLayer;
-        
+
 
         private static readonly int PickingUpTrigger = Animator.StringToHash("PickUpTrigger");
 
@@ -44,16 +46,25 @@ namespace Player.Interactions
             }
 
             RotateObject();
-
             if (!Input.GetKeyDown(KeyCode.Mouse0) || !_canDrop) return;
+            if (TryDropOffTube())
+            {
+                return;
+            }
+
             StopClipping();
-            ThrowObject();
         }
 
         public void PickUp(GameObject pickUpObj)
         {
-            if (HeldObj) return;
-            
+            //if (HeldObj) return;
+            if (HeldObj != null) 
+            {
+                Debug.Log("ACHTUNG: PickUp abgebrochen, weil HeldObj nicht leer ist! Es ist: " + HeldObj.name);
+                return;
+            }
+            Debug.Log("PickUp gestartet für: " + pickUpObj.name);
+
 
             StartCoroutine(PickUpRoutine(pickUpObj));
         }
@@ -64,6 +75,13 @@ namespace Player.Interactions
             playerAnim.SetTrigger(PickingUpTrigger);
 
             yield return new WaitForSeconds(0.5f);
+
+            TubeSlot tubeSlotObjekt = pickUpObj.GetComponentInParent<TubeSlot>();
+
+            if (tubeSlotObjekt != null)
+            {
+                tubeSlotObjekt.RemoveTube();
+            }
 
             HeldObj = pickUpObj;
             _rememberedLayer = HeldObj.layer;
@@ -78,8 +96,6 @@ namespace Player.Interactions
             Physics.IgnoreCollision(HeldObj.GetComponent<Collider>(), GetComponent<Collider>(), true);
 
             SetLayerRecursively(HeldObj, _layerNumber);
-            
-           
         }
 
         public void DropObject()
@@ -89,6 +105,29 @@ namespace Player.Interactions
             ClearObjectPhysics();
             HeldObj = null;
         }
+
+        private bool TryDropOffTube()
+        {
+            if (HeldObj == null) return false;
+
+            RaycastHit hit;
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, 3f))
+            {
+                TubeSlot slotScript = hit.transform.GetComponent<TubeSlot>();
+
+                if (slotScript != null && !slotScript.isOccupied)
+                {
+                    Debug.Log("Stecke in den Slot");
+                    Physics.IgnoreCollision(HeldObj.GetComponent<Collider>(), GetComponent<Collider>(), false);
+                    SetLayerRecursively(HeldObj, _rememberedLayer);
+                    slotScript.PlaceTube(HeldObj);
+                    HeldObj = null;
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         void RotateObject()
         {
@@ -106,18 +145,7 @@ namespace Player.Interactions
                 _canDrop = true;
             }
         }
-
-        void ThrowObject()
-        {
-            if (!HeldObj) return;
-
-            Rigidbody rb = _heldObjRb;
-            ClearObjectPhysics();
-
-            rb.AddForce(transform.forward * throwForce);
-
-            HeldObj = null;
-        }
+        
 
         void StopClipping()
         {

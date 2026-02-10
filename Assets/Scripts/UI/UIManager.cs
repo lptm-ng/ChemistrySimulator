@@ -18,8 +18,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI lexikonInhalt;
     public bool isLexikonOpen = false;
 
-    [Header("Abgabe")]
-    public GameObject submissionPanel;
+    [Header("Abgabe")] public GameObject submissionPanel;
     public TMP_Dropdown cationDropdown;
     public TMP_Dropdown anionDropdown;
     public TextMeshProUGUI feedbackText;

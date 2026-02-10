@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject infoPanel;
-    
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("Test Chemie"); // TODO: real scene loaden
+        SceneManager.LoadScene("Scenes/MainScene"); // TODO: real scene loaden
     }
 
     public void OpenInfo()

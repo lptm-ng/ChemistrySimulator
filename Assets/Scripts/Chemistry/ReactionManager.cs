@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Player.Interactions;
 
 public class ReactionManager : MonoBehaviour
 {
@@ -18,27 +19,37 @@ public class ReactionManager : MonoBehaviour
         // 1. Goldregen-Nachweis (Blei + Kaliumiodid)
         if (contentsChemicals.Contains("Blei") && contentsChemicals.Contains("Kaliumiodid"))
         {
-            TriggerReaction(container, "Goldregen",
-                "Pb<sup>2+</sup> + 2 I<sup>-</sup> → PbI<sub>2</sub>↓ (gelber Niederschlag)");
+            TriggerReaction(
+                container, 
+                "Goldregen", 
+                "Pb<sup>2+</sup> + 2 I<sup>-</sup> → PbI<sub>2</sub>↓ (gelber Niederschlag)",
+                Color.gold);
             // todo: trigger gelber parikel regen
         }
 
         // 2. Blutroter Komplex (Eisen + Kaliumthiocyanat)
         if (contentsChemicals.Contains("Eisen") && contentsChemicals.Contains("Kaliumthiocyanat"))
         {
-            TriggerReaction(container, "Blutrot",
-                "Fe<sup>3+</sup> + 3 SCN<sup>-</sup> + 3 H<sub>2</sub>O → [Fe(SCN)<sub>3</sub>(H<sub>2</sub>O)<sub>3</sub>] (blutrote Lösung)");
+            TriggerReaction(
+                container,
+                "Blutrot",
+                "Fe<sup>3+</sup> + 3 SCN<sup>-</sup> + 3 H<sub>2</sub>O → [Fe(SCN)<sub>3</sub>(H<sub>2</sub>O)<sub>3</sub>] (blutrote Lösung)",
+                Color.darkRed
+                );
             // todo: trigger blutrote lösung
         }
 
         // 3. Tollens
-        TriggerTollensReaction(container, contentsChemicals);
+        //TriggerTollensReaction(container, contentsChemicals);  Hat keine Reaktionsgleichung als Check. Wuerde nach jedem CheckReaction ausgefuehrt werden
 
         // 4. Sonnenuntergang-Nachweis (Thiosulfat + Silbernitrat)
         if (contentsChemicals.Contains("Thiosulfat") && contentsChemicals.Contains("Silbernitrat"))
         {
-            TriggerReaction(container, "Sonnenuntergang",
-                "1. 2 Ag<sup>+</sup> + S<sub>2</sub>O<sub>3</sub><sup>2-</sup> → Ag<sub>2</sub>S<sub>2</sub>O<sub>3</sub>↓ (weiß)\n2. Ag<sub>2</sub>S<sub>2</sub>O<sub>3</sub> + H<sub>2</sub>O → Ag<sub>2</sub>S ↓ + H<sub>2</sub>SO<sub>4</sub>");
+            TriggerReaction(
+                container,
+                "Sonnenuntergang",
+                "1. 2 Ag<sup>+</sup> + S<sub>2</sub>O<sub>3</sub><sup>2-</sup> → Ag<sub>2</sub>S<sub>2</sub>O<sub>3</sub>↓ (weiß)\n2. Ag<sub>2</sub>S<sub>2</sub>O<sub>3</sub> + H<sub>2</sub>O → Ag<sub>2</sub>S ↓ + H<sub>2</sub>SO<sub>4</sub>",
+                Color.black);
             // todo: zeitgesteuerter farbechsel (weiß -> gelb -> schwarz)
         }
     }
@@ -76,8 +87,15 @@ public class ReactionManager : MonoBehaviour
     }
 
 
-    private void TriggerReaction(ChemicalContainer container, string reactionName, string equation)
+    private void TriggerReaction(ChemicalContainer container, string reactionName, string equation, Color? reactionColor = null)
     {
+        
+        if (reactionColor.HasValue && MixingScript.Instance != null)
+        {
+            Debug.Log($"Color:  {reactionColor}");
+            MixingScript.Instance.TriggerMix(container.gameObject, reactionColor.Value);
+        }
+        
         Debug.Log("REAKTION: " + reactionName);
         Debug.Log("REAKTIONSGLEICHUNG: " + equation);
 

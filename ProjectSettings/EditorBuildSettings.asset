@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d8a7ca9c0ea72e444ad10f3227305e3b
   - enabled: 1
-    path: Assets/Scenes/Test Chemie.unity
-    guid: 158ed55699438654f8ec7180284f2686
+    path: Assets/Scenes/MainScene.unity
+    guid: e463e43189588d94faa46a8b4e21110a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

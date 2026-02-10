@@ -12,6 +12,7 @@ namespace Player.Interactions
         [SerializeField] private PickUpHandler pickUpHandler;
         private Camera _camera;
         private Target _currentTarget;
+        private ChemicalContainer _currentChemical;
 
 
         private void Start()
@@ -29,23 +30,51 @@ namespace Player.Interactions
         private void HandleDetection()
         {
             if (_camera is null) return;
-
             Ray ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
             if (Physics.Raycast(ray, out var hit, interactionRange, interactableLayer))
             {
-                if (hit.collider.TryGetComponent<Target>(out var target))
+                Target foundTarget = hit.collider.GetComponentInParent<Target>();
+                if (foundTarget != null)
                 {
-                    if (_currentTarget == target) return;
-                    _currentTarget = target;
-                    targetHandler.HandleTarget(target);
-                    return;
+                    if (_currentTarget != foundTarget)
+                    {
+                        _currentTarget = foundTarget;
+                        targetHandler.HandleTarget(foundTarget);
+                    }
+                }
+
+
+                if (hit.collider.TryGetComponent<ChemicalContainer>(out var chemical))
+                {
+                    if (chemical != _currentChemical) // neues object?
+                    {
+                        ClearCurrentChemical();
+                        if (chemical && chemical.contents.Count > 0)
+                        {
+                            _currentChemical = chemical;
+                            UIManager.Instance.ShowChemicalInfo(_currentChemical.contents[0].chemicalName,
+                                _currentChemical.contents[0].formula, _currentChemical.isRandomSample
+                            );
+                        }
+                    }
+                }
+
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    if (hit.collider.TryGetComponent<SubmissionStation>(out var station))
+                    {
+                        station.Interact();
+                    }
                 }
             }
-
-            if (!_currentTarget) return;
-            _currentTarget = null;
-            targetHandler.ClearCurrentHighlight();
+            else
+            {
+                if (!_currentChemical && !_currentTarget) return;
+                ClearCurrentChemical();
+                _currentTarget = null;
+                targetHandler.ClearCurrentHighlight();
+            }
         }
 
         private void HandleInput()
@@ -54,13 +83,83 @@ namespace Player.Interactions
             {
                 _currentTarget?.Interact();
             }
+
+            if (Keyboard.current.gKey.wasPressedThisFrame)
+            {
+                _currentTarget?.Interact();
+            }
+
             if (Keyboard.current.qKey.wasPressedThisFrame)
             {
                 if (_currentTarget)
                 {
-                    targetHandler.TryMix();
+                    
+                }
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                GameObject heldObj = pickUpHandler.HeldObj;
+                if (heldObj != null)
+                {
+                    ChemicalContainer sourceContainer = heldObj.GetComponent<ChemicalContainer>();
+
+                    if (sourceContainer != null && sourceContainer.contents.Count > 0)
+                    {
+                        Ray ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+                        if (Physics.Raycast(ray, out var hit, interactionRange, interactableLayer))
+                        {
+                            ChemicalContainer targetContainer = hit.collider.GetComponent<ChemicalContainer>();
+
+                            // Nicht in sich selbst schütten!
+                            if (targetContainer != null && targetContainer != sourceContainer)
+                            {
+                                PourChemical(sourceContainer, targetContainer);
+                            }
+                        }
+                        
+                        
+                    }
+                    
+                }
+            }
+
+            if (Keyboard.current.lKey.wasPressedThisFrame)
+            {
+                if (UIManager.Instance.isLexikonOpen)
+                {
+                    UIManager.Instance.CloseLexikon();
+                }
+                else if (_currentChemical != null && _currentChemical.contents.Count > 0 &&
+                         !_currentChemical.isRandomSample)
+                {
+                    UIManager.Instance.DisplayLexikon(_currentChemical.contents[0]);
                 }
             }
         }
+
+        private void ClearCurrentChemical()
+        {
+            _currentChemical = null;
+            if (UIManager.Instance != null)
+            {
+                UIManager.Instance.ClearInfo();
+            }
+        }
+        
+        
+        private void PourChemical(ChemicalContainer source, ChemicalContainer target)
+        {
+            foreach (var chem in source.contents)
+            {
+                target.AddChemical(chem);
+            }
+
+            // source.ClearContainer();
+    
+            Debug.Log("Chemikalien hinzugefügt");
+        }
+        
     }
 }

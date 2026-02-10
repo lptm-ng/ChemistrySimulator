@@ -1,3 +1,4 @@
+using Chemistry;
 using UnityEngine;
 
 namespace Player.Interactions
@@ -31,11 +32,23 @@ namespace Player.Interactions
 
         public void Interact()
         {
+            
+            var flammenProbe = FindFirstObjectByType<FlammenprobeHandler>();
             var pickUpHandler = FindFirstObjectByType<PickUpHandler>();
             if (!pickUpHandler) return;
-
-            pickUpHandler.PickUp(gameObject);
-            DeactivateHighlight();
+            if (pickUpHandler.HeldObj)
+            {
+                if (!flammenProbe) return;
+                Debug.Log("Flammenprobe ist nicht null");
+                flammenProbe.Flammenprobe(pickUpHandler.HeldObj);
+            }
+            else
+            {
+                if (!gameObject.CompareTag("canPickUp")) return;
+                Debug.Log("Interact aufgerufen bei Objekt: " + gameObject.name);
+                pickUpHandler.PickUp(gameObject);
+                DeactivateHighlight();
+            }
         }
 
         public string GetDescription()
